@@ -69,12 +69,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangojsml.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = { 
+    'default': { 
+        'ENGINE':       'django.db.backends.mysql', 
+        'NAME':         'djangojsml', 
+        'PORT':         '3306', 
+        'USER':         'django', 
+        'PASSWORD':     '1234',         
+        'HOST':         '127.0.0.1', 
+    } 
+} 
 
 AUTH_PASSWORD_VALIDATORS = [
     {

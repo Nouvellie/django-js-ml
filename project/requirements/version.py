@@ -9,8 +9,8 @@ __created__     =     "02/18/2020"
 # LOGS (VERSION - DATE - INFO - PROBLEMS)
 
 __logs__ = {
-    "version":      "0.0.1",
-    "date":         "12/18/2020",
-    "info":         ["Project's base.", "Version and requirements done.", "Custom runserver port.", "App core created.", "Urls created.", "Settings updated",],
-    "problems":     [None,],
+    'version':      "0.0.1",
+    'date':         "12/18/2020",
+    'info':         ["Project's base.", "Version and requirements done.", "Custom runserver port.", "App core created.", "Urls created.", "Settings updated",],
+    'problems':     [None,],
 }
