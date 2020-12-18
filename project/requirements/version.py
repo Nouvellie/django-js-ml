@@ -11,13 +11,13 @@ __created__     =     "02/18/2020"
 __logs__ = {
     'version':      "0.0.2",
     'date':         "12/18/2020",
-    'info':         ["Static files added, First API View created",],
+    'info':         ["Static files added.", "First API View created.","App registration created.", "DRF simple JWT added.",],
     'problems':     [None,],
 }
 
 # __logs__ = {
 #     'version':      "0.0.1",
 #     'date':         "12/18/2020",
-#     'info':         ["Project's base.", "Version and requirements done.", "Custom runserver port.", "App core created.", "Urls created.", "Settings updated",],
+#     'info':         ["Project's base.", "Version and requirements done.", "Custom runserver port.", "App core created.", "Urls created.", "Settings updated.",],
 #     'problems':     [None,],
 # }
