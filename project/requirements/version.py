@@ -1,7 +1,7 @@
 __author__      =     "Rocuant Roberto"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.0.3"
+__version__     =     "0.1.0"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
@@ -9,11 +9,18 @@ __created__     =     "02/18/2020"
 # LOGS (VERSION - DATE - INFO - PROBLEMS)
 
 __logs__        = {
-    'version':      "0.0.3",
-    'date':         "12/18/2020",
+    'version':      "0.1.0",
+    'date':         "12/19/2020",
     'info':         ["Trying React.", "App room created.", "Room model.", "Serializers added.", "Generics view created.", "App frontend created.",],
     'problems':     [None,],
 }
+
+# __logs__        = {
+#     'version':      "0.0.3",
+#     'date':         "12/18/2020",
+#     'info':         ["Trying React.", "App room created.", "Room model.", "Serializers added.", "Generics view created.", "App frontend created.",],
+#     'problems':     [None,],
+# }
 
 # __logs____        = {
 #     'version':      "0.0.2",
