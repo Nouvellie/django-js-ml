@@ -81,8 +81,7 @@ SIMPLE_JWT = {
 REST_REGISTRATION = {
     'REGISTER_VERIFICATION_ENABLED': True,
     # 'RESET_PASSWORD_VERIFICATION_ENABLED': False,
-    # 'REGISTER_EMAIL_VERIFICATION_ENABLED': False,
-    # 'REGISTER_VERIFICATION_URL': 'http://127.0.0.1:8005/api/v1/accounts/verify-registration/',
+    # 'REGISTER_EMAIL_VERIFICATION_ENABLED': False,    
     'REGISTER_VERIFICATION_URL': 'http://127.0.0.1:8005/api/accounts/verify-registration/',
     'RESET_PASSWORD_VERIFICATION_URL': 'http://localhost:8005/reset-password/',
     'REGISTER_EMAIL_VERIFICATION_URL': 'http://localhost:8005/verify-email/',
