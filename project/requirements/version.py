@@ -11,7 +11,7 @@ __created__     =     "02/18/2020"
 __logs__        = {
     'version':      "0.0.3",
     'date':         "12/18/2020",
-    'info':         ["Trying React.", "Room App created.",],
+    'info':         ["Trying React.", "Room App created.", "Room model.", "Serializers added.", "Generics view created.",],
     'problems':     [None,],
 }
 

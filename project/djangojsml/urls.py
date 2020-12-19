@@ -31,6 +31,11 @@ urlpatterns = [
         include('apps.apiregistration.urls'),
     ),
 
+    path(
+        'room/',
+        include('apps.room.urls'),
+    ),
+
     # DRF Registration:
     path(
         'api/v1/', 
