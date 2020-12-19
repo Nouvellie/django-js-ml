@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     # Apps:
     'apps.core', # Main app.
     'apps.apiregistration',
+    'apps.frontend',
     'apps.room',
 
     # DRF:

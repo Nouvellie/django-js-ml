@@ -36,6 +36,11 @@ urlpatterns = [
         include('apps.room.urls'),
     ),
 
+    path(
+        'react/',
+        include('apps.frontend.urls'),
+    ),
+
     # DRF Registration:
     path(
         'api/v1/', 
