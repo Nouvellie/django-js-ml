@@ -25,8 +25,8 @@ INSTALLED_APPS = [
 
     # Apps:
     'apps.core', # Main app.
-
     'apps.apiregistration',
+    'apps.room',
 
     # DRF:
     'rest_framework',
@@ -80,10 +80,10 @@ SIMPLE_JWT = {
 
 REST_REGISTRATION = {
     'REGISTER_VERIFICATION_ENABLED': True,
-    # 'RESET_PASSWORD_VERIFICATION_ENABLED': False,
+    'RESET_PASSWORD_VERIFICATION_ENABLED': True,
     # 'REGISTER_EMAIL_VERIFICATION_ENABLED': False,    
     'REGISTER_VERIFICATION_URL': 'http://127.0.0.1:8005/api/accounts/verify-registration/',
-    'RESET_PASSWORD_VERIFICATION_URL': 'http://localhost:8005/reset-password/',
+    'RESET_PASSWORD_VERIFICATION_URL': 'http://localhost:8005/api/accounts/reset-password/',
     'REGISTER_EMAIL_VERIFICATION_URL': 'http://localhost:8005/verify-email/',
 
     'VERIFICATION_FROM_EMAIL': 'no-reply@example.com',

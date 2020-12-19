@@ -1,4 +1,7 @@
-from .views import VerifyRegistrationView
+from .views import (
+    ResetPasswordView,
+    VerifyRegistrationView,
+)
 from django.urls import path
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -12,7 +15,13 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     
-    # Template Views:
+    # Registration's View:
+    path(
+        'accounts/reset-password/',
+        ResetPasswordView.as_view(),
+        name='reset_password',
+    ),
+    
     path(
         'accounts/verify-registration/',
         VerifyRegistrationView.as_view(),

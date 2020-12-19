@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 from rest_framework import (
     generics,
     status,
@@ -11,3 +12,8 @@ class FirstApiView(APIView):
 
     def post(self, request):
         pass
+
+
+class TestingView(TemplateView):
+
+    template_name = 'core/base.html'
