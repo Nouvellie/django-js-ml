@@ -5,13 +5,35 @@ from django.urls import (
 )
 
 
+api_urlpatterns = [
+    path(
+        'accounts/', 
+        include('rest_registration.api.urls'),
+    ),
+]
+
 urlpatterns = [
     # Admin:
-    path('admin/', admin.site.urls),
+    path(
+        'nouvellie-admin/', 
+        admin.site.urls,
+    ),
+
+    # Core app:
+    path(
+        '',
+        include('apps.core.urls'),
+    ),
 
     # Apps:
     path(
-        '',
-        include('apps.core.urls')
+        'api/',
+        include('apps.apiregistration.urls'),
+    ),
+
+    # DRF Registration:
+    path(
+        'api/v1/', 
+        include(api_urlpatterns),
     ),
 ]

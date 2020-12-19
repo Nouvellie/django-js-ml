@@ -11,7 +11,7 @@ __created__     =     "02/18/2020"
 __logs__ = {
     'version':      "0.0.2",
     'date':         "12/18/2020",
-    'info':         ["Static files added.", "First API View created.","App registration created.", "DRF simple JWT added.",],
+    'info':         ["Static files added.", "First API View created.","App registration created.", "DRF simple JWT added.", "Register API ok", "Verify registration ok.",],
     'problems':     [None,],
 }
 
