@@ -27,18 +27,23 @@ urlpatterns = [
 
     # Apps:
     path(
+        'react/',
+        include('apps.apireact.urls'),
+    ),
+
+    path(
         'api/',
         include('apps.apiregistration.urls'),
     ),
 
     path(
-        'room/',
-        include('apps.room.urls'),
+        '',
+        include('apps.frontend.urls'),
     ),
 
     path(
-        'react/',
-        include('apps.frontend.urls'),
+        'room/',
+        include('apps.room.urls'),
     ),
 
     # DRF Registration:

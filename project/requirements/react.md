@@ -13,3 +13,8 @@ $ npm install react-router-dom
 $ npm install @material-ui/icons
 ```
 
+## Generate main.js file
+
+```sh
+$ npm run dev
+```

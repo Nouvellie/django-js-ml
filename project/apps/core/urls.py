@@ -7,7 +7,7 @@ from django.urls import path
 
 urlpatterns = [
     path(
-        '',
+        'first',
         FirstApiView.as_view(),
         name = 'first_api',
     ),	

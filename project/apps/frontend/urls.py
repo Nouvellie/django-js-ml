@@ -8,4 +8,16 @@ urlpatterns = [
         IndexView.as_view(),
         name = 'index_view',
     ),
+
+    path(
+        'join',
+        IndexView.as_view(),
+        name = 'join',
+    ),
+    
+    path(
+        'create',
+        IndexView.as_view(),
+        name = 'create',
+    ),
 ]
