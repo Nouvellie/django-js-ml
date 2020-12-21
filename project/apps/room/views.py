@@ -30,9 +30,18 @@ class CreateRoomAPIView(APIView):
     serializer_class = CreateRoomSerializer
     
     def post(self, request, format=None):
+        try:
+            print("1")
+            print(self.request.session.session_key)
+        except:
+            pass
         if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
-        
+        try:
+            print("2")
+            print(self.request.session.session_key)
+        except:
+            pass
         serializer = self.serializer_class(data=request.data)
         
         if serializer.is_valid():

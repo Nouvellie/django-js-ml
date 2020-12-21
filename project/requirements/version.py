@@ -11,8 +11,8 @@ __created__     =     "02/18/2020"
 __logs__        = {
     'version':      "0.2.0",
     'date':         "12/21/2020",
-    'info':         ["Create room API ready.",],
-    'problems':     [None,],
+    'info':         ["Create room API ready.", "Create room JS script for Post Method OK.", "Room created.",],
+    'problems':     ["Room str roomCode problems.",],
 }
 
 # __logs__        = {

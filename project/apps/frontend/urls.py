@@ -20,4 +20,10 @@ urlpatterns = [
         IndexView.as_view(),
         name = 'create',
     ),
+ 
+    path(
+        'room/<str:roomCode>',
+        IndexView.as_view(),
+        name = 'room_created',
+    ),
 ]
