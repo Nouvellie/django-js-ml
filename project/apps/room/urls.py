@@ -1,4 +1,5 @@
 from .views import (
+    CreateRoomAPIView,
     RoomCreateView,
     RoomListView,
 )
@@ -16,5 +17,11 @@ urlpatterns = [
         'list',
         RoomListView.as_view(),
         name = 'room',
+    ),	
+
+    path(
+        'create-room',
+        CreateRoomAPIView.as_view(),
+        name = 'create_room',
     ),	
 ]

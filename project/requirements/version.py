@@ -1,7 +1,7 @@
 __author__      =     "Rocuant Roberto"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.1.1"
+__version__     =     "0.2.0"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
@@ -9,11 +9,18 @@ __created__     =     "02/18/2020"
 # LOGS (VERSION - DATE - INFO - PROBLEMS)
 
 __logs__        = {
-    'version':      "0.1.1",
-    'date':         "12/19/2020",
-    'info':         ["Webpack config file renamed.", "React code OK", "Routing ready with urls association", "App apireact created.",],
+    'version':      "0.2.0",
+    'date':         "12/21/2020",
+    'info':         ["Create room API ready.",],
     'problems':     [None,],
 }
+
+# __logs__        = {
+#     'version':      "0.1.1",
+#     'date':         "12/19/2020",
+#     'info':         ["Webpack config file renamed.", "React code OK", "Routing ready with urls association", "App apireact created.",],
+#     'problems':     [None,],
+# }
 
 # __logs__        = {
 #     'version':      "0.1.0",
