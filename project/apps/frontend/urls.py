@@ -4,19 +4,19 @@ from django.urls import path
 
 urlpatterns = [
     path(
-        '',
+        'room',
         IndexView.as_view(),
         name = 'index_view',
     ),
 
     path(
-        'join',
+        'room/join',
         IndexView.as_view(),
         name = 'join',
     ),
     
     path(
-        'create',
+        'room/create',
         IndexView.as_view(),
         name = 'create',
     ),

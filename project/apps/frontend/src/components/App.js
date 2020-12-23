@@ -15,7 +15,8 @@ export default class App extends Component {
     render() {
         // return <h1>{this.props.name}</h1>;
         // return <HomePage />
-        return (<div>
+        return (
+        <div className="center">
             <HomePage />
             {/* <CreateRoomPage></CreateRoomPage> */}
             {/* <RoomJoinPage></RoomJoinPage> */}

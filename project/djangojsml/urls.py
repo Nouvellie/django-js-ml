@@ -42,7 +42,7 @@ urlpatterns = [
     ),
 
     path(
-        'room/',
+        '',
         include('apps.room.urls'),
     ),
 

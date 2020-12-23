@@ -19,10 +19,10 @@ export default class HomePage extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/"><p>Test Home Page JS</p></Route>
-          <Route path="/join" component={RoomJoinPage} />
-          <Route path="/create" component={CreateRoomPage} />
+          <Route path="/room/join" component={RoomJoinPage} />
+          <Route path="/room/create" component={CreateRoomPage} />
           <Route path="/room/:roomCode" component={Room} />
+          <Route exact path="/room"><p>Test Home Page JS</p></Route>
           {/* <Route path="/"><p>Test Home Page (Without exact)</p></Route> */}
         </Switch>
       </Router>

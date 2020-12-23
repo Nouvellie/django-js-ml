@@ -1,7 +1,7 @@
 __author__      =     "Rocuant Roberto"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.2.0"
+__version__     =     "0.2.1"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
@@ -9,11 +9,18 @@ __created__     =     "02/18/2020"
 # LOGS (VERSION - DATE - INFO - PROBLEMS)
 
 __logs__        = {
-    'version':      "0.2.0",
-    'date':         "12/21/2020",
-    'info':         ["Create room API ready.", "Create room JS script for Post Method OK.", "Room created.",],
-    'problems':     ["Room str roomCode problems.",],
+    'version':      "0.2.1",
+    'date':         "12/23/2020",
+    'info':         ["Room str roomCode problems fixed.", "GetRoomAPIView created.", "Redict View from Create TemplateView to Room View.", "JoinRoomView created.", "CreateRoomAPIView Updated.",],
+    'problems':     [None,],
 }
+
+# __logs__        = {
+#     'version':      "0.2.0",
+#     'date':         "12/21/2020",
+#     'info':         ["Create room API ready.", "Create room JS script for Post Method OK.", "Room created.",],
+#     'problems':     ["Room str roomCode problems.",],
+# }
 
 # __logs__        = {
 #     'version':      "0.1.1",
