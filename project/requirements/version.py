@@ -12,7 +12,7 @@ __logs__        = {
     'version':      "0.2.1",
     'date':         "12/23/2020",
     'info':         ["Room str roomCode problems fixed.", "GetRoomAPIView created.", "Redict View from Create TemplateView to Room View.", "JoinRoomView created.", "CreateRoomAPIView Updated.",],
-    'problems':     [None,],
+    'problems':     ["Join Room error adapted from APIView response.",],
 }
 
 # __logs__        = {
