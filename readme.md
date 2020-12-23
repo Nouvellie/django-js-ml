@@ -20,5 +20,5 @@
 </p>
 
 <br><br>
-***Created by Nouvellie, 12/18/2020***
+***Created by Nouvellie, 12/18/2020***<br>
 ***Credits to "Tech With Time", for the "Django & React Tutorial" (adapted) [Link](https://www.youtube.com/watch?v=JD-age0BPVo&list=PLzMcBGfZo4-kCLWnGmK0jUBmGLaJxvi4j&index=1)***
