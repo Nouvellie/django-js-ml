@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import RoomJoinPage from "./RoomJoinPage";
 import CreateRoomPage from "./CreateRoomPage";
 import Room from "./Room";
-import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core"
+import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,15 +17,16 @@ export default class HomePage extends Component {
     this.state = {
       roomCode: null,
     };
+    this.clearRoomCode = this.clearRoomCode.bind(this);
   }
 
   async componentDidMount() {
-    fetch('/apiroom/user-in-room')
+    fetch("/apiroom/user-in-room")
       .then((response) => response.json())
       .then((data) => {
         this.setState({
           roomCode: data.code,
-        })
+        });
       });
   }
 
@@ -45,25 +46,39 @@ export default class HomePage extends Component {
             <Button color="secondary" to="/room/create" component={Link}>
               Create a Room
             </Button>
-          </ButtonGroup>  
+          </ButtonGroup>
         </Grid>
       </Grid>
     );
+  }
+
+  clearRoomCode() {
+    this.setState({
+      roomCode: null,
+    });
   }
 
   render() {
     return (
       <Router>
         <Switch>
+          <Route
+            exact
+            path="/room"
+            render={() => {
+              return this.state.roomCode ? (
+                <Redirect to={`/room/${this.state.roomCode}`} />
+              ) : (
+                this.renderHomePage()
+              );
+            }}
+          />
           <Route path="/room/join" component={RoomJoinPage} />
           <Route path="/room/create" component={CreateRoomPage} />
-          <Route path="/room/:roomCode" component={Room} />
-          <Route exact path="/room" render={() => {
-            return this.state.roomCode ? (
-              <Redirect to={`/room/${this.state.roomCode}`} />
-            ) : (
-              this.renderHomePage()
-            );
+          <Route
+            path="/room/:roomCode"
+            render={(props) => {
+              return <Room {...props} leaveRoomCallback={this.clearRoomCode} />;
             }}
           />
         </Switch>

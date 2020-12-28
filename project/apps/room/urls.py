@@ -2,6 +2,7 @@ from .views import (
     CreateRoomAPIView,
     GetRoomAPIView,
     JoinRoomAPIView,
+    LeaveRoomAPIView,
     RoomCreateAPIView,
     RoomListAPIView,
     UserInRoomAPIView,
@@ -44,5 +45,11 @@ urlpatterns = [
         'apiroom/user-in-room',
         UserInRoomAPIView.as_view(),
         name = 'user_in_room',
+    ),	
+    
+    path(
+        'apiroom/leave-room',
+        LeaveRoomAPIView.as_view(),
+        name = 'leave_room',
     ),	
 ]
