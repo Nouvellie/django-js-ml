@@ -14,7 +14,7 @@ urlpatterns = [
 
     # Testing:
     path(
-        'home',
+        '',
         TestingView.as_view(),
         name = 'first_view',
     ),

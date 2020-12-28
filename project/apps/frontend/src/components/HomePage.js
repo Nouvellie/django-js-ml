@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import RoomJoinPage from "./RoomJoinPage";
 import CreateRoomPage from "./CreateRoomPage";
 import Room from "./Room";
+import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core"
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +14,41 @@ import {
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      roomCode: null,
+    };
+  }
+
+  async componentDidMount() {
+    fetch('/apiroom/user-in-room')
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          roomCode: data.code,
+        })
+      });
+  }
+
+  renderHomePage() {
+    return (
+      <Grid container spacing={3}>
+        <Grid item xs={12} align="center">
+          <Typography variant="h3" compact="h3">
+            House Party
+          </Typography>
+        </Grid>
+        <Grid item xs={12} align="center">
+          <ButtonGroup disableElevation variant="contained" color="primary">
+            <Button color="primary" to="/room/join" component={Link}>
+              Join a Room
+            </Button>
+            <Button color="secondary" to="/room/create" component={Link}>
+              Create a Room
+            </Button>
+          </ButtonGroup>  
+        </Grid>
+      </Grid>
+    );
   }
 
   render() {
@@ -22,8 +58,14 @@ export default class HomePage extends Component {
           <Route path="/room/join" component={RoomJoinPage} />
           <Route path="/room/create" component={CreateRoomPage} />
           <Route path="/room/:roomCode" component={Room} />
-          <Route exact path="/room"><p>Test Home Page JS</p></Route>
-          {/* <Route path="/"><p>Test Home Page (Without exact)</p></Route> */}
+          <Route exact path="/room" render={() => {
+            return this.state.roomCode ? (
+              <Redirect to={`/room/${this.state.roomCode}`} />
+            ) : (
+              this.renderHomePage()
+            );
+            }}
+          />
         </Switch>
       </Router>
     );

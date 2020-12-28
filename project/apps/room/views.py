@@ -3,6 +3,7 @@ from .serializers import (
     CreateRoomSerializer,
     RoomSerializer,
 )
+from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework import (
     generics, 
@@ -13,13 +14,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
-class RoomCreateView(generics.CreateAPIView):
+class RoomCreateAPIView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
 
 
-class RoomListView(generics.ListAPIView):
+class RoomListAPIView(generics.ListAPIView):
     permission_classes = (AllowAny,)
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
@@ -84,7 +85,7 @@ class GetRoomAPIView(APIView):
         return Response({'bad_request': "Code parameter not found in request."}, status=status.HTTP_400_BAD_REQUEST)
 
 
-class JoinRoomView(APIView):
+class JoinRoomAPIView(APIView):
     lookup_url_kwarg = 'code'
     permission_classes = (AllowAny,)
 
@@ -105,3 +106,17 @@ class JoinRoomView(APIView):
             return Response({'room_not_found': "Invalid Room Code."}, status=status.HTTP_404_NOT_FOUND)
         
         return Response({'bad_request': 'Invalid post data, did not find a code key.'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserInRoomAPIView(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request, format=None):
+        if not self.request.session.exists(self.request.session.session_key):
+            self.request.session.create()
+        
+        data = {
+            'code': self.request.session.get('room_code')
+        }
+
+        return JsonResponse(data, status=status.HTTP_200_OK)

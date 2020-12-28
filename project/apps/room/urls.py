@@ -1,9 +1,10 @@
 from .views import (
     CreateRoomAPIView,
     GetRoomAPIView,
-    JoinRoomView,
-    RoomCreateView,
-    RoomListView,
+    JoinRoomAPIView,
+    RoomCreateAPIView,
+    RoomListAPIView,
+    UserInRoomAPIView,
 )
 from django.urls import path
 
@@ -11,13 +12,13 @@ from django.urls import path
 urlpatterns = [
     path(
         'apiroom/create',
-        RoomCreateView.as_view(),
+        RoomCreateAPIView.as_view(),
         name = 'room',
     ),
     
     path(
         'apiroom/list',
-        RoomListView.as_view(),
+        RoomListAPIView.as_view(),
         name = 'room',
     ),	
 
@@ -35,7 +36,13 @@ urlpatterns = [
     
     path(
         'apiroom/join-room',
-        JoinRoomView.as_view(),
+        JoinRoomAPIView.as_view(),
         name = 'join_room',
+    ),	
+    
+    path(
+        'apiroom/user-in-room',
+        UserInRoomAPIView.as_view(),
+        name = 'user_in_room',
     ),	
 ]
