@@ -7,21 +7,14 @@ __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
 __structure__   =     "version - date - info - problems - commit"
 
-__logs__        = {
-    'version':      "0.3.2",
-    'date':         "",
-    'info':         ["",],
-    'problems':     [None,],
-    'commit':       "",
-}
 
-# __logs__        = {
-#     'version':      "0.3.1",
-#     'date':         "12/28/2020",
-#     'info':         ["UpdateRoomAPIView created.", "Settings button for Room ready.", "Close button for Room settings ready.", "Structure updated.",],
-#     'problems':     [None,],
-#     'commit':       "",
-# }
+__logs__        = {
+    'version':      "0.3.1",
+    'date':         "12/28/2020",
+    'info':         ["UpdateRoomAPIView created.", "Settings button for Room ready.", "Close button for Room settings ready.", "Structure updated.",],
+    'problems':     [None,],
+    'commit':       "5c5290134e9b3bfa65a861d3338225eb2e5792b0",
+}
 
 # __logs__        = {
 #     'version':      "0.3.0",
