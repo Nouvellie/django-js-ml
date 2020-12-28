@@ -2,6 +2,7 @@ from .models import Room
 from .serializers import (
     CreateRoomSerializer,
     RoomSerializer,
+    UpdateRoomSerializer,
 )
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -135,3 +136,39 @@ class LeaveRoomAPIView(APIView):
                 room.delete()
         
         return Response({'message': "Success"}, status=status.HTTP_200_OK)
+
+
+class UpdateRoomAPIView(APIView):
+    permission_classes = (AllowAny,)
+    serializer_class = UpdateRoomSerializer
+
+    def patch(self, request, format=None):
+        if not self.request.session.exists(self.request.session.session_key):
+            self.request.session.create()
+
+        serializer = self.serializer_class(data=request.data)
+        
+        if serializer.is_valid():
+            guest_can_pause = serializer.data.get('guest_can_pause')
+            votes_to_skip = serializer.data.get('votes_to_skip')
+            code = serializer.data.get('code')
+
+            queryset = Room.objects.filter(code=code)
+
+            if not queryset.exists():
+
+                return Response({'message': "Room not found."}, status=status.HTTP_400_BAD_REQUEST)
+
+            room = queryset[0]
+            user_id = self.request.session.session_key
+
+            if room.host != user_id:
+                return Response({'message': "You are not the host of this room."}, status=status.HTTP_403_FORBIDDEN)
+            
+            room.guest_can_pause = guest_can_pause
+            room.votes_to_skip = votes_to_skip
+            room.save(update_fields=['guest_can_pause', 'votes_to_skip'])
+
+            return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
+    
+        return Response({'bad_request': "Invalid data."}, status=status.HTTP_400_BAD_REQUEST)

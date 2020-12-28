@@ -1,20 +1,35 @@
 __author__      =     "Rocuant Roberto"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.3.0"
+__version__     =     "0.3.1"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
-
-# LOGS (VERSION - DATE - INFO - PROBLEMS)
+__structure__   =     "version - date - info - problems - commit"
 
 __logs__        = {
-    'version':      "0.3.0",
-    'date':         "12/28/2020",
-    'info':         ["UserInRoomAPIView created.", "HomePage.js adapted for the new userinroom view.", "HomeView change from '/home' to ''.", "Commit added to the logs.", "Fix some problem with HomePage and Room. (js)", "Leave Button pressed ready.", "New leaveRoomCallback function adapted.",],
+    'version':      "0.3.2",
+    'date':         "",
+    'info':         ["",],
     'problems':     [None,],
     'commit':       "",
 }
+
+# __logs__        = {
+#     'version':      "0.3.1",
+#     'date':         "12/28/2020",
+#     'info':         ["UpdateRoomAPIView created.", "Settings button for Room ready.", "Close button for Room settings ready.", "Structure updated.",],
+#     'problems':     [None,],
+#     'commit':       "",
+# }
+
+# __logs__        = {
+#     'version':      "0.3.0",
+#     'date':         "12/28/2020",
+#     'info':         ["UserInRoomAPIView created.", "HomePage.js adapted for the new userinroom view.", "HomeView change from '/home' to ''.", "Commit added to the logs.", "Fix some problem with HomePage and Room. (js)", "Leave Button pressed ready.", "New leaveRoomCallback function adapted.",],
+#     'problems':     [None,],
+#     'commit':       "5ae70594def0602d0454493251a4ea69370fd5d9",
+# }
 
 # __logs__        = {
 #     'version':      "0.2.1",

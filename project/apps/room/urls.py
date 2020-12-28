@@ -5,6 +5,7 @@ from .views import (
     LeaveRoomAPIView,
     RoomCreateAPIView,
     RoomListAPIView,
+    UpdateRoomAPIView,
     UserInRoomAPIView,
 )
 from django.urls import path
@@ -51,5 +52,11 @@ urlpatterns = [
         'apiroom/leave-room',
         LeaveRoomAPIView.as_view(),
         name = 'leave_room',
+    ),	
+
+    path(
+        'apiroom/update-room',
+        UpdateRoomAPIView.as_view(),
+        name = 'update_room',
     ),	
 ]
