@@ -1,20 +1,29 @@
 __author__      =     "Rocuant Roberto"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.3.4"
+__version__     =     "0.3.5"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
 __structure__   =     "version - date - info - problems - fixed - commit"
 
-__logs__        = {
-    'version':      "0.3.4",
+__logs__        =  {
+    'version':      "0.3.5",
     'date':         "12/29/2020",
-    'info':         ["CurrentSongAPIView created.", "Current Song function adapted on Room.", "Iterative current song function added.", "MusicPlayer component created.", "Card created and linked to the Room.",],
+    'info':         ["",],
     'problems':     [None,],
     'fixed':        None,
     'commit':       "",
 }
+
+# __logs__        = {
+#     'version':      "0.3.4",
+#     'date':         "12/29/2020",
+#     'info':         ["CurrentSongAPIView created.", "Current Song function adapted on Room.", "Iterative current song function added.", "MusicPlayer component created.", "Card created and linked to the Room.",],
+#     'problems':     [None,],
+#     'fixed':        None,
+#     'commit':       "04aa96259e72051a7dc7a025ecfb6b12f8464eb8",
+# }
 
 # __logs__        = {
 #     'version':      "0.3.3",
