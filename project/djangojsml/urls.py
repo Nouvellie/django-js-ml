@@ -46,6 +46,11 @@ urlpatterns = [
         include('apps.room.urls'),
     ),
 
+    path(
+        '',
+        include('apps.spotify.urls'),
+    ),
+
     # DRF Registration:
     path(
         'api/v1/', 

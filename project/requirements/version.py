@@ -1,21 +1,29 @@
 __author__      =     "Rocuant Roberto"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.3.2"
+__version__     =     "0.3.3"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
 __structure__   =     "version - date - info - problems - fixed - commit"
 
-
 __logs__        = {
-    'version':      "0.3.2",
+    'version':      "0.3.3",
     'date':         "12/28/2020",
-    'info':         ["UpdateRoom updated.", "New functions for render update/create buttons.", "Use of collapse function.", "Material UI lab installed.", "Refresh room after updated.", "Code updated.", "Radio GuestCanPause does not change fixed.", "Fixed structure boolean added.",],
-    'problems':     ["Radio GuestCanPause does not change.",],
-    'fixed':        True,
-    'commit':       "e9df688e75492cc70c8cd3faca237d320e9f7f56",
+    'info':         ["Spotify App created.", "Credentials file added.", "Spotify models.", "Util file for functions.", "AuthURLAPIView created.", "Spotify callback redirect.", "IsAuthenticated View.", "Spotify frontend ready.",],
+    'problems':     [None,],
+    'fixed':        None,
+    'commit':       "",
 }
+
+# __logs__        = {
+#     'version':      "0.3.2",
+#     'date':         "12/28/2020",
+#     'info':         ["UpdateRoom updated.", "New functions for render update/create buttons.", "Use of collapse function.", "Material UI lab installed.", "Refresh room after updated.", "Code updated.", "Radio GuestCanPause does not change fixed.", "Fixed structure boolean added.",],
+#     'problems':     ["Radio GuestCanPause does not change.",],
+#     'fixed':        True,
+#     'commit':       "12cd4e3dbc7170d061470b1262272b335a2c6bcb",
+# }
 
 # __logs__        = {
 #     'version':      "0.3.1",

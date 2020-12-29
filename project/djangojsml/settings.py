@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'apps.apiregistration',
     'apps.frontend',
     'apps.room',
+    'apps.spotify',
 
     # DRF:
     'rest_framework',
