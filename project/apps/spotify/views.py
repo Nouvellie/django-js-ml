@@ -4,12 +4,12 @@ from .credentials import (
     REDIRECT_URI,
 )
 from .util import (   
-    # execute_spotify_api_call,
+    execute_spotify_api_request,
     is_spotify_authenticated, 
     get_user_tokens, 
     update_or_create_user_tokens, 
 )
-    
+from apps.room.models import Room
 from django.shortcuts import (
     redirect,
     render,
@@ -75,3 +75,53 @@ class IsAuthenticated(APIView):
             self.request.session.session_key)
 
         return Response({'status': is_authenticated}, status=status.HTTP_200_OK)
+
+
+class CurrentSongAPIView(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request, format=None):
+        room_code = self.request.session.get('room_code')
+        room = Room.objects.filter(code=room_code)
+        
+        if room.exists():
+            room = room[0]
+        
+        else:
+            return Response({}, status=status.HTTP_404_NOT_FOUND)
+
+        host = room.host
+        endpoint = 'player/currently-playing'
+        
+        response = execute_spotify_api_request(host, endpoint)
+
+        if 'error' in response or 'item' not in response:
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        item = response.get('item')
+        duration = item.get('duration_ms')
+        progress = response.get('progress_ms')
+        album_cover = item.get('album').get('images')[0].get('url')
+        is_playing = response.get('is_playing')
+        song_id = item.get('id')
+
+        artist_string = ""
+
+        for i, artist in enumerate(item.get('artists')):
+            if i > 0:
+                artist_string += ", "
+            name = artist.get('name')
+            artist_string += name
+        
+        song = {
+            'title': item.get('name'),
+            'artist': artist_string,
+            'duration': duration,
+            'time': progress,
+            'image_url': album_cover,
+            'is_playing': is_playing,
+            'votes': 0,
+            'id': song_id,
+        }
+
+        return Response(song, status=status.HTTP_200_OK)

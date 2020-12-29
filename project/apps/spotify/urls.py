@@ -1,5 +1,6 @@
 from .views import (
     AuthURLAPIView,
+    CurrentSongAPIView,
     IsAuthenticated,
     spotify_callback,
 )
@@ -24,6 +25,12 @@ urlpatterns = [
         'spotify/is-authenticated',
         IsAuthenticated.as_view(),
         name = 'is_authenticated',
+    ),
+
+    path(
+        'spotify/current-song',
+        CurrentSongAPIView.as_view(),
+        name = 'current_song',
     ),
 
 ]

@@ -1,20 +1,29 @@
 __author__      =     "Rocuant Roberto"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.3.3"
+__version__     =     "0.3.4"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
 __structure__   =     "version - date - info - problems - fixed - commit"
 
 __logs__        = {
-    'version':      "0.3.3",
-    'date':         "12/28/2020",
-    'info':         ["Spotify App created.", "Credentials file added.", "Spotify models.", "Util file for functions.", "AuthURLAPIView created.", "Spotify callback redirect.", "IsAuthenticated View.", "Spotify frontend ready.",],
+    'version':      "0.3.4",
+    'date':         "12/29/2020",
+    'info':         ["CurrentSongAPIView created.", "Current Song function adapted on Room.", "Iterative current song function added.", "MusicPlayer component created.", "Card created and linked to the Room.",],
     'problems':     [None,],
     'fixed':        None,
     'commit':       "",
 }
+
+# __logs__        = {
+#     'version':      "0.3.3",
+#     'date':         "12/28/2020",
+#     'info':         ["Spotify App created.", "Credentials file added.", "Spotify models.", "Util file for functions.", "AuthURLAPIView created.", "Spotify callback redirect.", "IsAuthenticated View.", "Spotify frontend ready.",],
+#     'problems':     [None,],
+#     'fixed':        None,
+#     'commit':       "1c537961cd9724e8ccb5982b1136b7efb0ecc70c",
+# }
 
 # __logs__        = {
 #     'version':      "0.3.2",
