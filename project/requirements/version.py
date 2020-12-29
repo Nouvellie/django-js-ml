@@ -7,13 +7,14 @@ __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
 __structure__   =     "version - date - info - problems - fixed - commit"
 
+
 __logs__        = {
     'version':      "0.3.2",
     'date':         "12/28/2020",
-    'info':         ["UpdateRoom updated.", "New functions for render update/create buttons.", "Use of collapse function.", "Material UI lab installed.", "Refresh room after updated.", "Code updated.", "Radio GuestCanPause does not change fixed.",],
+    'info':         ["UpdateRoom updated.", "New functions for render update/create buttons.", "Use of collapse function.", "Material UI lab installed.", "Refresh room after updated.", "Code updated.", "Radio GuestCanPause does not change fixed.", "Fixed structure boolean added.",],
     'problems':     ["Radio GuestCanPause does not change.",],
     'fixed':        True,
-    'commit':       "",
+    'commit':       "e9df688e75492cc70c8cd3faca237d320e9f7f56",
 }
 
 # __logs__        = {
