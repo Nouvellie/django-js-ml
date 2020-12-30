@@ -1,4 +1,10 @@
-from djangojsml.settings import MEDIA_ROOT
+from .preprocessing import (
+    Pipeline, 
+    register_in_pipeline,
+)
+from djangojsml.settings import (
+    MODEL_ROOT,
+)
 from math import floor
 from PIL import Image
 from requirements.mlmodels import (
@@ -19,19 +25,23 @@ import traceback
 
 # ----------------------------------------------------------- PRELOAD ----------------------------------------------------------- #
 
-## FASHION MNIST
-full_path_fashion_mnist = os.path.join(MEDIA_ROOT + FASHION_MNIST_TFLITE)
+## FASHION MNIST MODEL
+full_path_fashion_mnist = os.path.join(MODEL_ROOT + FASHION_MNIST_TFLITE)
 interpreter_fashion_mnist = lite.Interpreter(model_path=full_path_fashion_mnist)#, num_threads=4)
 interpreter_fashion_mnist.allocate_tensors()
 input_details_fashion_mnist = interpreter_fashion_mnist.get_input_details()
 output_details_fashion_mnist = interpreter_fashion_mnist.get_output_details()
 
+## FASHION MNIST LABELS
 class_names = ['t-shirt-top', 'trouser', 'pullover', 'dress', 'coat', 'sandal', 'shirt', 'sneaker', 'bag', 'ankle-boot']
+
+# PIPELINE PREPROCESSING
+preprocessing_mnist = Pipeline()
+preprocessing_mnist.fromJSON(MODEL_ROOT + "fashionmnist/preprocessing.json")
 
 
 class MachineLearningTFLite():
-
-
+    
     def fashion_mnist_tflite(self, img_buffer, filename, start_time,):            
 
         try:
@@ -66,15 +76,6 @@ class MachineLearningTFLite():
 
         img = Image.open(img_buffer[0])
         gray_img = img.convert('L')
-        
-        array_image = self.pre_processing(gray_img)
-
-        return array_image
-
-    
-    def pre_processing(self, gray_img, target_size=(28, 28), rescale_factor=255.0,):
-
-        img = gray_img.resize(target_size)
-        array_image = np.expand_dims(np.array(img), axis=0) / rescale_factor
+        array_image = preprocessing_mnist(gray_img)
 
         return array_image

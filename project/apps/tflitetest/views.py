@@ -20,7 +20,6 @@ class FashionMnistAPIView(APIView):
 
         
         try:
-            
             filename = request.data['image'].name
             
             if not filename.endswith(".png"):
