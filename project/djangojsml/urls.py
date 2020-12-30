@@ -51,6 +51,11 @@ urlpatterns = [
         include('apps.spotify.urls'),
     ),
 
+    path(
+        '',
+        include('apps.tflitetest.urls'),
+    ),
+
     # DRF Registration:
     path(
         'api/v1/', 

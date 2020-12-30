@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'apps.frontend',
     'apps.room',
     'apps.spotify',
+    'apps.tflitetest',
 
     # DRF:
     'rest_framework',

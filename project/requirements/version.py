@@ -9,8 +9,8 @@ __structure__   =     "version - date - info - problems - fixed - commit"
 
 __logs__        =  {
     'version':      "0.3.5",
-    'date':         "12/29/2020",
-    'info':         ["",],
+    'date':         "12/30/2020",
+    'info':         ["Tflitetest App created.", "ML models folder created on media.", "ML models file for models paths.", "Tflitemodels file for preload and def models.", "TFLite for Mnist ready with test_image from keras.", "TFLite for fashion mnist ready.", "Status code for the TFLite views.",],
     'problems':     [None,],
     'fixed':        None,
     'commit':       "",
