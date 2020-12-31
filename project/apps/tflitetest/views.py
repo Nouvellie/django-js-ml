@@ -28,7 +28,7 @@ class FashionMnistAPIView(APIView):
             filename = request.data['image'].name
             
             if not filename.endswith(".png"):
-                return Response({'error': 'unsupported_media_type',}, status=HTTP_415_UNSUPPORTED_MEDIA_TYPE)
+                return Response({'error': 'unsupported_media_type',}, status=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 
             start_time = time.time()
 

@@ -1,5 +1,5 @@
 __author__      =     "Rocuant Roberto"
-__credits__     =     "Ávila Jorge"
+__credits__     =     "Ávila Jorge (ML), Ruscica Tim (React)"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
 __version__     =     "0.5.0"
@@ -11,7 +11,7 @@ __structure__   =     "str(version) - str(date) - list(info) - list(problems) - 
 __logs__        =  {
     'version':      "0.5.0",
     'date':         "12/31/2020",
-    'info':         ["New models for Fashion Mnist.", "React App removed.",],
+    'info':         ["New models for Fashion Mnist.", "React App removed.", "Statuscode for 415 for fashion mnist fixed.", "Credits updated.", "Readme updated.",],
     'problems':     ["Json result of the trained model instead of mlmodels file.",],
     'fixed':        False,
     'commit':       "",
