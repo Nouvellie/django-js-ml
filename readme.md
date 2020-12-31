@@ -3,9 +3,13 @@
 
 - Django.
 - Django Rest Framework.
-- Custom API's.
-- React/Angular.
 - Machine Learning. (h5/hdf5-json/tflite)
+- React/Angular.
+- Rest Framework Simple JWToken.
+- MySQL models adaptation.
+- Custom API's.
+- Class-based views.
+- New versioning system.
 - Gunicorn.
 - Nginx.
 - Services. 
@@ -13,7 +17,11 @@
 ## Links
 
 - [Requirements.](https://github.com/Nouvellie/django-js-ml/tree/main/project/requirements)
-- [Machine Learnings.]()
+- [Machine Learnings.](https://github.com/Nouvellie/django-js-ml/tree/main/project/media/ml-models)
+- [Version.](https://github.com/Nouvellie/django-js-ml/blob/main/project/requirements/version.py)
+- [React.](https://github.com/Nouvellie/django-js-ml/tree/main/project/apps/frontend)
+- [TFLite.](https://github.com/Nouvellie/django-js-ml/tree/main/project/apps/tflitetest)
+- [Registration API.](https://github.com/Nouvellie/django-js-ml/tree/main/project/apps/apiregistration)
 
 <br><br><p align="center">
   <img width="75%" height="75%" src="https://github.com/Nouvellie/django-js-ml/blob/main/project/media/img/django.svg" alt="Django JS ML">

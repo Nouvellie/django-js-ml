@@ -12,4 +12,4 @@
 
 ## Tensorflow example models integrated.
 
-- Fashion Mnist.
+- [Fashion Mnist.](https://github.com/Nouvellie/django-js-ml/tree/main/project/media/ml-models)
