@@ -1,20 +1,29 @@
 __author__      =     "Rocuant Roberto"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.4.0"
+__version__     =     "0.4.1"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
 __structure__   =     "str(version) - str(date) - list(info) - list(problems) - bool(fixed) - str(commit)"
 
 __logs__        =  {
-    'version':      "0.4.0",
-    'date':         "12/30/2020",
-    'info':         ["Pipelines for the models as a global structure.", "None removed from problems key.", "Structure info updated.", "New structure for the ml-models media folder.", "Constant MODEL_ROOT created.",],
-    'problems':     ["Global pre-processing for ML with pipeline and json.*", "Class output decodification with umbrals and argmax.", "Tensorflow App for json/hdf5 models example for fashion mnist.",],
+    'version':      "0.4.1",
+    'date':         "",
+    'info':         ["ML models file for paths removed.", "Standarization of the root name for tflites models.",],
+    'problems':     ["Startswith adaptation for TFLite preload.*", "File modularization for previous work to predict.",],
     'fixed':        False,
     'commit':       "",
 }
+
+# __logs__        =  {
+#     'version':      "0.4.0",
+#     'date':         "12/30/2020",
+#     'info':         ["Pipelines for the models as a global structure.", "None removed from problems key.", "Structure info updated.", "New structure for the ml-models media folder.", "Constant MODEL_ROOT created.",],
+#     'problems':     ["Global pre-processing for ML with pipeline and json.*", "Class output decodification with umbrals and argmax.*", "Tensorflow App for json/hdf5 models example for fashion mnist.",],
+#     'fixed':        False,
+#     'commit':       "d4eae902c901496076c28f2e09fe0bb1214453a9",
+# }
 
 # __logs__        =  {
 #     'version':      "0.3.5",

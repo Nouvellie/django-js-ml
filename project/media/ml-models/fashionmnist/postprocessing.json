@@ -1,0 +1,16 @@
+{
+    "order_output_model": [
+        "t-shirt-top",
+        "trouser",
+        "pullover",
+        "dress",
+        "coat",
+        "sandal",
+        "shirt",
+        "sneaker",
+        "bag",
+        "ankle-boot"
+    ],
+    "decode_output_by": "argmax",
+    "umbral": null
+}

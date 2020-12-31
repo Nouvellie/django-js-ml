@@ -1,4 +1,5 @@
-from .tflitemodels import MachineLearningTFLite
+from .tflitemodels import fashion_mnist_model
+
 from django.shortcuts import render
 from djangojsml.settings import DEBUG
 from PIL import Image
@@ -30,7 +31,8 @@ class FashionMnistAPIView(APIView):
             img_buffer = list(request.FILES.getlist('image'))
             
 
-            fashion_mnist_result = MachineLearningTFLite().fashion_mnist_tflite(img_buffer, filename=filename, start_time=start_time)
+            fashion_mnist_result = fashion_mnist_model.predict(img_buffer, confidence_bool=True)
+            # fashion_mnist_result = 1
             
             return Response(fashion_mnist_result, status=status.HTTP_200_OK)
         
