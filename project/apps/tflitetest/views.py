@@ -1,5 +1,4 @@
-from .tflitemodels import fashion_mnist_model
-
+from .model_loader import ModelLoader
 from django.shortcuts import render
 from djangojsml.settings import DEBUG
 from PIL import Image
@@ -12,6 +11,11 @@ import numpy as np
 import re
 import time
 import traceback
+
+# Preload TFLite models with some pre-post process.
+fashion_mnist_model = ModelLoader("fashionmnist")
+imdb_model = ModelLoader("imdb")
+print("\n")
 
 
 class FashionMnistAPIView(APIView):
@@ -32,7 +36,6 @@ class FashionMnistAPIView(APIView):
             
 
             fashion_mnist_result = fashion_mnist_model.predict(img_buffer, confidence_bool=True)
-            # fashion_mnist_result = 1
             
             return Response(fashion_mnist_result, status=status.HTTP_200_OK)
         
@@ -44,4 +47,3 @@ class FashionMnistAPIView(APIView):
             
             else:
                 return Response({'error': "bad_request",}, status=status.HTTP_400_BAD_REQUEST)
-            

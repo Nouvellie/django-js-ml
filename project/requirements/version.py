@@ -1,20 +1,30 @@
 __author__      =     "Rocuant Roberto"
+__credits__     =     "Ávila Jorge"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.4.1"
+__version__     =     "0.5.0"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020"
 __structure__   =     "str(version) - str(date) - list(info) - list(problems) - bool(fixed) - str(commit)"
 
 __logs__        =  {
-    'version':      "0.4.1",
-    'date':         "",
-    'info':         ["ML models file for paths removed.", "Standarization of the root name for tflites models.",],
-    'problems':     ["Startswith adaptation for TFLite preload.*", "File modularization for previous work to predict.",],
+    'version':      "0.5.0",
+    'date':         "12/31/2020",
+    'info':         ["New models for Fashion Mnist.", "React App removed.",],
+    'problems':     ["Json result of the trained model instead of mlmodels file.",],
     'fixed':        False,
     'commit':       "",
 }
+
+# __logs__        =  {
+#     'version':      "0.4.1",
+#     'date':         "12/30/2020",
+#     'info':         ["ML models file for paths removed.", "Standarization of the root name for tflites models.",],
+#     'problems':     ["Startswith adaptation for TFLite preload.*", "File modularization for previous work to predict.",],
+#     'fixed':        False,
+#     'commit':       "6a7f2c355733e27a88519b5265c66fb6d7b75a6b",
+# }
 
 # __logs__        =  {
 #     'version':      "0.4.0",

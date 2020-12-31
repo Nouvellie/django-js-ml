@@ -11,9 +11,9 @@ import json
 FUNCTIONS_PIPELINE = OrderedDict()
 
 
-def register_in_pipeline(func):
+def register_in_pipeline(func,):
     """Collect functions for the pipeline"""
-    print(f"{func.__name__} registered in Pipeline")
+    # print(f"{func.__name__} registered in Pipeline")
     if func.__name__ not in FUNCTIONS_PIPELINE:
         FUNCTIONS_PIPELINE[func.__name__] = func
     else:
@@ -30,7 +30,7 @@ class Pipeline:
         self.pipeline = pipeline if pipeline else []
 
 
-    def __call__(self, x):
+    def __call__(self, x,):
         """Apply pipeline to the input 'x'"""
         for pipe in self.pipeline: 
             func_name, *args, kwargs = pipe
@@ -49,7 +49,7 @@ class Pipeline:
 
 
     @classmethod
-    def apply(cls, x, func, *args, **kwargs):
+    def apply(cls, x, func, *args, **kwargs,):
         """Compute func(x, *args, **kwargs)"""
         if func in cls.FUNCTIONS_PIPELINE:
             return cls.FUNCTIONS_PIPELINE[func](x, *args, **kwargs)
@@ -58,10 +58,10 @@ class Pipeline:
             raise TypeError(f"{func} not available")
     
 
-    def __gt__(self, add_pipe):
+    def __gt__(self, add_pipe,):
         """Add a pipe ("func_name", args, kwargs)/("func_name", kwargs) to the current pipeline"""
         if self.is_available(add_pipe[0]):
-            print(f"adding {add_pipe[0]!r} to pipeline")
+            # print(f"adding {add_pipe[0]!r} to pipeline")
             self.pipeline.append(add_pipe)
             return self.__class__(self.pipeline)
        
@@ -69,20 +69,20 @@ class Pipeline:
             raise NotImplementedError(f"{add_pipe[0]!r} not available in Pipeline")       
 
 
-    def is_available(self, func_name):
+    def is_available(self, func_name,):
         """Return True if the function 'func_name' is available in Pipeline"""
         return True if func_name in self.FUNCTIONS_PIPELINE else False
 
 
-    def asJSON(self, path_save=None):
+    def asJSON(self, path_save=None,):
         path_save = Path(path_save) if path_save else Path("pipeline.json")
 
         with open(path_save, "w", encoding="utf8") as fp:
             json.dump(self.pipeline, fp, indent=4, ensure_ascii=False)
-        print(f"Pipeline configuration saved at {path_save!r}")
+        # print(f"Pipeline configuration saved at {path_save!r}")
 
 
-    def fromJSON(self, path_pipeline):
+    def fromJSON(self, path_pipeline,):
         # Rear pipeline
         path_pipeline = Path(path_pipeline)
 
@@ -103,4 +103,4 @@ class Pipeline:
             ]
         
         self.pipeline = pipeline
-        print(f"Pipeline loaded from {path_pipeline!r}")
+        print("\n", f"Pipeline loaded from {path_pipeline!r}")

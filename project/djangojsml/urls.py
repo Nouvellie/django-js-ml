@@ -27,11 +27,6 @@ urlpatterns = [
 
     # Apps:
     path(
-        'react/',
-        include('apps.apireact.urls'),
-    ),
-
-    path(
         'api/',
         include('apps.apiregistration.urls'),
     ),

@@ -1,11 +1,16 @@
 from math import floor
 from pathlib import Path
-from typing import List, Union, Optional
+from typing import (
+    List, 
+    Optional,
+    Union, 
+)
 
 import json
 import numpy as np
 
-#FIXME: output para una neurona de salida.
+
+#FIXME: Last layer for one output neuron.
 class DecoderOutput:
     '''
     Decode output of a model. Get the predicted classes using 'argmax' or 'umbral'
@@ -26,34 +31,42 @@ class DecoderOutput:
     '''
     VERSION = 1
 
+
     def __init__(self, order_output_model: Optional[List[str]] = None, argmax: bool = False, umbral: Optional[Union[float, List[float]]] = None):
         self.order_output_model = order_output_model
         self.decode_output_by   = 'argmax' if argmax is True else 'umbral'
         self.umbral = umbral
         self.set_decoder_config()
 
+
     def set_decoder_config(self,):
         self.config = dict(
             order_output_model=self.order_output_model,
             decode_output_by=self.decode_output_by,
             umbral=self.umbral
-            )
+        )
 
-    def decode_by_argmax(self, output: List[float]):
+
+    def decode_by_argmax(self, output: List[float],):
         "Decode output using argmax"
         return [self.order_output_model[np.argmax(output)]]
 
-    def decode_by_umbral(self, output: List[float]):
+
+    def decode_by_umbral(self, output: List[float],):
         "Decode output using umbral(s)"
         if isinstance(self.umbral, list):
             assert len(self.umbral)==len(self.order_output_model), 'list of umbrals does not have the same length than output'
+            
             return [class_ for class_, pred, umbral in zip(self.order_output_model, output, self.umbral) if pred>=umbral]
+        
         elif isinstance(self.umbral, float):
             return [class_ for class_, pred in zip(self.order_output_model, output) if pred>=self.umbral]
+       
         else:
             raise("'umbral' must be a float or a list")
 
-    def decode_output(self, output_model, include_confidence=False):
+
+    def decode_output(self, output_model, include_confidence=False,):
         """Decode output of the model
 
         Args:
@@ -75,6 +88,7 @@ class DecoderOutput:
             # Special case: binary-1 output
             if len(output_list)==1:
                 decoded_output = self.order_output_model[int(np.round(output_list[0]))]
+           
             else:
                 # multilabel-2+ outputs
                 decoded_output = self.decode_by_umbral(output_list)
@@ -83,25 +97,29 @@ class DecoderOutput:
         if include_confidence: 
             return dict(
                 decoded_output=decoded_output, 
-                confidence_model={class_: floor(output * 10 ** 4) / 10 ** 4
-                            for class_, output 
-                            in zip(self.order_output_model, output_list)
-                            }
-                )
+                confidence_model={
+                    class_: floor(output * 10 ** 4) / 10 ** 4 for class_, output in zip(self.order_output_model, output_list)
+                }
+            )
+
         else:
             return dict(
                 decoded_output=decoded_output
-                )
+            )
 
-    def asJSON(self, path_save=None):
+    def asJSON(self, path_save=None,):
         path_save = Path(path_save) if path_save else Path("postprocessing.json")
+       
         with open(str(path_save), "w", encoding="utf8") as fp:
             json.dump(self.config, fp, indent=4, ensure_ascii=False)
+
         print(f"Postprocessing configuration saved at {path_save!r}")
+
 
     def fromJSON(self, path_postprocessing):
         # Rear postprocessing
         path_postprocessing = Path(path_postprocessing)
+        
         with open(str(path_postprocessing), "r", encoding="utf8") as fp: 
             postprocessing = json.load(fp)
         
@@ -109,4 +127,5 @@ class DecoderOutput:
         self.decode_output_by   = postprocessing.get("decode_output_by")
         self.umbral = postprocessing.get("umbral")
         self.config = postprocessing
-        print(f"Postprocessing loaded from {path_postprocessing!r}")
+
+        # print(f"Postprocessing loaded from {path_postprocessing!r}")
