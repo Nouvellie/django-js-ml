@@ -14,6 +14,8 @@ class Test(APIView):
 
     def get(self, request):
 
+        import time
+        time.sleep(2)
         try:
             result = fashion_mnist_model.predict()
 

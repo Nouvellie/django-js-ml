@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 import numpy as np
 import re
@@ -38,13 +38,8 @@ class FashionMnistAPIView(APIView):
             
 
             fashion_mnist_result = fashion_mnist_model.predict(img_buffer, confidence_bool=True)
-            imdb_model_result = imdb_model.predict(img_buffer, confidence_bool=True)
-            result = {
-                '1': fashion_mnist_result,
-                '2': imdb_model_result,
-            }
-            
-            return Response(result, status=status.HTTP_200_OK)
+
+            return Response(fashion_mnist_result, status=status.HTTP_200_OK)
         
         except Exception as e:
             full_traceback = re.sub(r"\n\s*", " || ", traceback.format_exc())

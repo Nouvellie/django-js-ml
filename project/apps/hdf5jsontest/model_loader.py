@@ -41,9 +41,14 @@ class ModelLoader():
         from tensorflow import keras
         data = keras.datasets.fashion_mnist
         (train_images, train_labels), (test_images, test_labels) = data.load_data()
-        array_image = test_images[0]/255.0
-        print(self.model)
-        # predict = self.model.predict(array_image)
-        # print(predict)
+        import random
+        i = random.choice([1,2,3,4,5,6,7,8,9])
+        array_image = test_images[i]/255.0
+        # print(self.model)
+        # print(self.model.inputs)
+        
+        print(test_labels[i])
+        predict = self.model.predict(array_image.reshape(1, 28, 28))
+        print(np.argmax(predict[0]))
         predict = 'asd'
         return predict

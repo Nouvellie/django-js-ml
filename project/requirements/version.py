@@ -11,9 +11,9 @@ __structure__   =     "str(version) - str(date) - list(info) - list(problems) - 
 __logs__        =  {
     'version':      "0.5.1",
     'date':         "01/02/2021",
-    'info':         ["Tensorflow gpu installed and added to Anaconda script file.", "Hdfyjsontest App created.", "",],
-    'problems':     ["Problems with layers.", "Problems with get_default_graph function.", "",],
-    'fixed':        None,
+    'info':         ["Tensorflow gpu installed and added to Anaconda script file.", "Hdfyjsontest App created.", "Hdf5jsontest App removed.", "Tflitetest App changed to tensorflow", "Hdf5/json predict working.", "Merge tflite with tensorflow hdf5 type.", "Remake model_loader to be compatible with tflite and hdf5/json input type.",],
+    'problems':     ["Problems with layers.*", "Problems with get_default_graph function.*", "Git ignore settings.",],
+    'fixed':        False,
     'commit':       "",
 }
 
@@ -39,8 +39,8 @@ __logs__        =  {
 #     'version':      "0.4.0",
 #     'date':         "12/30/2020",
 #     'info':         ["Pipelines for the models as a global structure.", "None removed from problems key.", "Structure info updated.", "New structure for the ml-models media folder.", "Constant MODEL_ROOT created.",],
-#     'problems':     ["Global pre-processing for ML with pipeline and json.*", "Class output decodification with umbrals and argmax.*", "Tensorflow App for json/hdf5 models example for fashion mnist.",],
-#     'fixed':        False,
+#     'problems':     ["Global pre-processing for ML with pipeline and json.*", "Class output decodification with umbrals and argmax.*", "Tensorflow App for json/hdf5 models example for fashion mnist.*",],
+#     'fixed':        True,
 #     'commit':       "d4eae902c901496076c28f2e09fe0bb1214453a9",
 # }
 

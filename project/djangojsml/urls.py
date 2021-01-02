@@ -53,7 +53,7 @@ urlpatterns = [
 
     path(
         '',
-        include('apps.tflitetest.urls'),
+        include('apps.tensorflow.urls'),
     ),
 
     # DRF Registration:

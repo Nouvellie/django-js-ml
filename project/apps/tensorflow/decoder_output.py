@@ -20,7 +20,6 @@ class DecoderOutput:
     If you want to load a postprocessing from  a json file, instantiate the class without parameters
     >> decoder = DecoderOutput()
     >> decoder.fromJSON("path/to/postprocessing.json")
-
     Otherwise, provide the inputs for:
     
     Multiclass (many outputs, one choice)
@@ -68,11 +67,9 @@ class DecoderOutput:
 
     def decode_output(self, output_model, include_confidence=False,):
         """Decode output of the model
-
         Args:
             output_model (np.array): output of a keras model
             include_confidence (bool, optional): whether to return or not the output of the model. Defaults to False.
-
         Returns:
             dict: dictionary with the desired outputs
         """     

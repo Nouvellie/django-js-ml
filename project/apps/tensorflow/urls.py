@@ -5,7 +5,7 @@ from django.urls import path
 
 urlpatterns = [
     path(
-        'tflite/fashion-mnist',
+        'tf/fashion-mnist',
         FashionMnistAPIView.as_view(),
         name = 'fashion_mnist',
     ),
