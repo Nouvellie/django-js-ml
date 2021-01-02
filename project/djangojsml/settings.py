@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'apps.core', # Main app.
     'apps.apiregistration',
     'apps.frontend',
+    'apps.hdf5jsontest',
     'apps.room',
     'apps.spotify',
     'apps.tflitetest',

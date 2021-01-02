@@ -103,4 +103,4 @@ class Pipeline:
             ]
         
         self.pipeline = pipeline
-        print("\n", f"Pipeline loaded from {path_pipeline!r}")
+        # print("\n", f"Pipeline loaded from {path_pipeline!r}")

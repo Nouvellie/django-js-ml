@@ -51,5 +51,5 @@ Restart PC.
 ```sh
 $ conda create -n <envname> mysqlclient python==3.8 -y
 $ source activate <envname>
-$ pip install appdirs bokeh boto boto3 cython django django-allauth django-cors-headers django-filter django-rest-auth djangorestframework djangorestframework_simplejwt dtw==1.3.3 ec2-metadata gensim gunicorn imgaug ipykernel jupyter_console jupyter_contrib_nbextensions jupyter-themer jupyter_dashboards jupyter_full_width jupyterhub jupyterlab keras marshmallow matplotlib mysql-connector-python nltk numpy opencv-python openpyxl pandas pdf2image pypng regex scipy stop-words symspellpy tensorflow==2.4.0rc4 tqdm wazeroutecalculator wfdb xlrd xlwt
+$ pip install appdirs bokeh boto boto3 cython django django-allauth django-cors-headers django-filter django-rest-auth djangorestframework djangorestframework_simplejwt dtw==1.3.3 ec2-metadata gensim gunicorn imgaug ipykernel jupyter_console jupyter_contrib_nbextensions jupyter-themer jupyter_dashboards jupyter_full_width jupyterhub jupyterlab keras marshmallow matplotlib mysql-connector-python nltk numpy opencv-python openpyxl pandas pdf2image pypng regex scipy stop-words symspellpy tensorflow==2.4.0rc4 tensorflow-gpu==2.4.0rc4 tqdm wazeroutecalculator wfdb xlrd xlwt
 ```

@@ -33,8 +33,9 @@ class ModelLoader:
     def __init__(self, model_name,):
         self.model_name=model_name
         self.preload_model()
-        self.load_postprocessing()
         self.load_preprocessing()
+        self.load_postprocessing()
+        print(f"The model {model_name.title()} has been pre-loaded successfully.")
 
 
     def load_preprocessing(self,):
