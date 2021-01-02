@@ -11,8 +11,8 @@ __structure__   =     "str(version) - str(date) - list(info) - list(problems) - 
 __logs__        =  {
     'version':      "0.5.1",
     'date':         "01/02/2021",
-    'info':         ["Tensorflow gpu installed and added to Anaconda script file.", "Hdfyjsontest App created.", "Hdf5jsontest App removed.", "Tflitetest App changed to tensorflow", "Hdf5/json predict working.", "Merge tflite with tensorflow hdf5 type.", "Remake model_loader to be compatible with tflite and hdf5/json input type.",],
-    'problems':     ["Problems with layers.*", "Problems with get_default_graph function.*", "Git ignore settings.",],
+    'info':         ["Tensorflow gpu installed and added to Anaconda script file.", "Hdfyjsontest App created.", "Hdf5jsontest App removed.", "Tflitetest App changed to tensorflow", "Hdf5/json predict working.", "Merge tflite with tensorflow hdf5 type.", "Remake model_loader to be compatible with tflite and hdf5/json input type.", "TFLITE and HDF5 ready.", "Code cleaned.",],
+    'problems':     ["Problems with layers.*", "Problems with get_default_graph function.*", "Git ignore settings.", "Model for text inputs.", "Model for vector inputs.", "Model for signal inputs.", "Testing all the remains functions.",],
     'fixed':        False,
     'commit':       "",
 }

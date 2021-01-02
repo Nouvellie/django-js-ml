@@ -1,99 +1,148 @@
+
 from .decoder_output import DecoderOutput  
+from .file_loader import ImageLoader as FileLoader
+from .inputs_model import InputsModelImage as InputsModel
 from .preprocessing import (
     Pipeline, 
     register_in_pipeline,
 )
+from .utils import fromJSON
+from abc import (
+    ABCMeta, 
+    abstractmethod,
+)
 from djangojsml.settings import  MODEL_ROOT
 from math import floor
-from PIL import Image
-from requirements.version import __version__
+from pathlib import Path
 from tensorflow import (
 	convert_to_tensor,
 	lite,
 )
+from tensorflow.keras.models import model_from_json
 from time import time
 
 import numpy as np
-import re
 import os  
+import re
 import traceback
 
 
-class ModelLoader:
-    """
-    How to use
-
-    >> # Instantiate model
-    >> model_loader = ModelLoader()
-    >> interpreter_model , input_details_model, output_details_model = model_loader("modelname") # Nombre de la carpeta    
-    """
-    NUM_THREADS = 0
-
-
-    def __init__(self, model_name,):
-        self.model_name=model_name
+class BaseModelLoader(metaclass=ABCMeta):
+    """Metaclass to define loaders for models"""
+    def __init__(self, dir_model):
+        self.dir_model=dir_model
+        self.load_file_loader() # file to array
+        self.load_preprocessing() # preprocess array
+        self.load_input_model() # array as inputs for the model
+        self.load_postprocessing() # get prediction based on classes
         self.preload_model()
-        self.load_preprocessing()
-        self.load_postprocessing()
-        print(f"The model {model_name.title()} has been pre-loaded successfully.")
 
 
+    def load_file_loader(self,):
+        """Function to load file as array"""
+        self.file_loader = FileLoader()
+
+
+    def load_input_model(self,):
+        self.InputsModel = InputsModel()
+    
     def load_preprocessing(self,):
-        preprocessing_path = os.path.join(MODEL_ROOT + f"{self.model_name}/preprocessing.json")
+        """Function to apply preprocessing to an array"""
+        preprocessing_path = os.path.join(MODEL_ROOT + f"{self.dir_model}/preprocessing.json")
+        
         self.preprocessing = Pipeline()
         self.preprocessing.fromJSON(preprocessing_path)
 
 
     def load_postprocessing(self,):
-        decoder_path = os.path.join(MODEL_ROOT + f"{self.model_name}/postprocessing.json")
+        """Function to apply postprocessing to the output of the model"""
+        decoder_path = os.path.join(MODEL_ROOT + f"{self.dir_model}/postprocessing.json")
         self.decoder = DecoderOutput()
         self.decoder.fromJSON(decoder_path)
 
 
+    def generate_input_model(self, input):
+        """From file->array->preprocessing->input for the model"""
+        
+        input = self.file_loader(input)        
+        input = self.preprocessing(input) 
+        input = self.InputsModel.img2input(input)
+        
+        return input
+
+    # @abstractmethod 
+    # def preload_model(self,):
+    #     pass
+
+    # @abstractmethod 
+    # def predict(self,):
+    #     pass
+
+
+class ModelLoaderTFLITE(BaseModelLoader):
+    NUM_THREADS = 0
+
     def preload_model(self,):
-        model_path = os.path.join(MODEL_ROOT + f"{self.model_name}/model.tflite")
+        """Preload tflite model"""        
+        name_tflite = [name for name in os.listdir(MODEL_ROOT + f"{self.dir_model}") if name.endswith(".tflite")][0]
+        model_path = os.path.join(MODEL_ROOT + f"{self.dir_model}/{name_tflite}")
         
         if self.NUM_THREADS > 0:
-            self.interpreter = lite.Interpreter(model_path=model_path, num_threads=self.NUM_THREADS)
-       
+            self.interpreter = lite.Interpreter(model_path=str(model_path), num_threads=self.NUM_THREADS)
+
         else:
-            self.interpreter = lite.Interpreter(model_path=model_path)
-       
+            self.interpreter = lite.Interpreter(model_path=str(model_path))
+
         self.interpreter.allocate_tensors()
         self.input_details = self.interpreter.get_input_details()
         self.output_details = self.interpreter.get_output_details()
-        
+
 
     def predict(self, input, confidence_bool=False,):
-        
         try:
-            # Pre-processing
-            array_image = self.load_image(input)
+            X = self.generate_input_model(input)
 
-            # Predict
-            input_images = convert_to_tensor(np.array(array_image), np.float32)
-            self.interpreter.set_tensor(self.input_details[0]['index'], input_images)
+            for j,x in enumerate(X):
+                input_X = convert_to_tensor(np.array(x), np.float32)
+                
+                self.interpreter.set_tensor(self.input_details[j]['index'], input_X)
             
             self.interpreter.invoke()
             
             prediction = self.interpreter.get_tensor(self.output_details[0]['index'])
-            
+
+            result = self.decoder.decode_output(prediction, include_confidence=confidence_bool)
+
+            return result
+
         except Exception as e:
             full_traceback = re.sub(r"\n\s*", " || ", traceback.format_exc())
-            print(full_traceback)
+            print(full_traceback, e)
 
-        result = self.decoder.decode_output(prediction, include_confidence=confidence_bool)
+
+class ModelLoaderJSONHDF5(BaseModelLoader):
+    
+    def preload_model(self,):
+        json_model_path = os.path.join(MODEL_ROOT + f"{self.dir_model}/model.json")
+        hdf5_model_path = os.path.join(MODEL_ROOT + f"{self.dir_model}/model.hdf5")
+
+        # Generating model and graph for sessions
+        with open(json_model_path, "r") as json_file:
+            self.model = model_from_json(json_file.read())
+        self.model.load_weights(hdf5_model_path)
+
+
+    def predict(self, input, confidence_bool=False,):
         
-        return result
+        try:
+            X = self.generate_input_model(input)
 
+            prediction = self.model.predict(X)
+            
+            result = self.decoder.decode_output(prediction, include_confidence=confidence_bool)
 
-    def load_image(self, img,):
-        #TODO: Modularizar las cargas, una para ecg, otra para imagenes, otra para X
-        # load_img, load_ecg, load_X, ...
-        """Load image from InMemoryUploadFile"""
+            return result
 
-        img = Image.open(img[0])
-        gray_img = img.convert('L')
-        array_image = self.preprocessing(gray_img)
-
-        return array_image
+        except Exception as e:
+            full_traceback = re.sub(r"\n\s*", " || ", traceback.format_exc())
+            print(full_traceback, e)

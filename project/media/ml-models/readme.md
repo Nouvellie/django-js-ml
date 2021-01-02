@@ -10,6 +10,6 @@
 - Tensorflow Lite. 
 - MODEL_ROOT for ml models.
 
-## Tensorflow example models integrated.
+## Tensorflow example models integrated. [Tensorflow APP.](https://github.com/Nouvellie/django-js-ml/tree/main/project/apps/tensorflow)
 
-- [Fashion Mnist.](https://github.com/Nouvellie/django-js-ml/tree/main/project/media/ml-models)
+- Fashion Mnist.

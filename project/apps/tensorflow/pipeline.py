@@ -16,6 +16,7 @@ def register_in_pipeline(func,):
     # print(f"{func.__name__} registered in Pipeline")
     if func.__name__ not in FUNCTIONS_PIPELINE:
         FUNCTIONS_PIPELINE[func.__name__] = func
+
     else:
         raise Exception(f"Duplicated function with name {func.__name__}")
 
@@ -26,6 +27,7 @@ class Pipeline:
     x -> Pipeline(x) -> new_x
     """
     FUNCTIONS_PIPELINE = FUNCTIONS_PIPELINE
+
     def __init__(self, pipeline: Optional[List[Tuple[str, dict]]] = None):
         self.pipeline = pipeline if pipeline else []
 
@@ -52,6 +54,7 @@ class Pipeline:
     def apply(cls, x, func, *args, **kwargs,):
         """Compute func(x, *args, **kwargs)"""
         if func in cls.FUNCTIONS_PIPELINE:
+         
             return cls.FUNCTIONS_PIPELINE[func](x, *args, **kwargs)
         
         else:
@@ -63,6 +66,7 @@ class Pipeline:
         if self.is_available(add_pipe[0]):
             # print(f"adding {add_pipe[0]!r} to pipeline")
             self.pipeline.append(add_pipe)
+
             return self.__class__(self.pipeline)
        
         else:

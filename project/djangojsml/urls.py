@@ -38,11 +38,6 @@ urlpatterns = [
 
     path(
         '',
-        include('apps.hdf5jsontest.urls'),
-    ),
-
-    path(
-        '',
         include('apps.room.urls'),
     ),
 

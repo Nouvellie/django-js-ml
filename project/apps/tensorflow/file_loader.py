@@ -1,13 +1,11 @@
-# from PIL import Image
+from PIL import Image
 
-# class ImageLoader():
 
-#     # def __init__(self, filename,):
-#     #     self.filename = filename
+class ImageLoader():
 
-#     def __call__(self, filename,):
+    def __call__(self, filename,):
         
-#         img = Image.open(img[0])
-#         img = img.convert('L')
+        img = Image.open(filename[0])
+        img = img.convert('L')
 
-#         return img
+        return img

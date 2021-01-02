@@ -1,4 +1,7 @@
-from .model_loader import ModelLoader
+from .model_loader import (
+    ModelLoaderJSONHDF5,
+    ModelLoaderTFLITE,
+)
 from django.shortcuts import render
 from djangojsml.settings import DEBUG
 from PIL import Image
@@ -7,17 +10,14 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
 import numpy as np
 import re
 import time
 import traceback
 
 # Preload TFLite models with some pre-post process.
-fashion_mnist_model = ModelLoader(model_name="fashionmnist")
-imdb_model = ModelLoader(model_name="imdb")
+fashion_mnist_tflite_model = ModelLoaderTFLITE(dir_model="fashionmnist")
+fashion_mnist_hdf5json_model = ModelLoaderJSONHDF5(dir_model="fashionmnist")
 
 
 class FashionMnistAPIView(APIView):
@@ -35,11 +35,15 @@ class FashionMnistAPIView(APIView):
             start_time = time.time()
 
             img_buffer = list(request.FILES.getlist('image'))
+
+            tflite_result = fashion_mnist_tflite_model.predict(img_buffer, confidence_bool=True)
+            hdf5json_result = fashion_mnist_hdf5json_model.predict(img_buffer, confidence_bool=True)
             
-
-            fashion_mnist_result = fashion_mnist_model.predict(img_buffer, confidence_bool=True)
-
-            return Response(fashion_mnist_result, status=status.HTTP_200_OK)
+            result = {
+                'tflite': tflite_result,
+                'hdf5json': hdf5json_result,
+            }
+            return Response(result, status=status.HTTP_200_OK)
         
         except Exception as e:
             full_traceback = re.sub(r"\n\s*", " || ", traceback.format_exc())
