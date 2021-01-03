@@ -2,27 +2,36 @@ __author__      =     "Rocuant Roberto"
 __credits__     =     "Ávila Jorge (ML), Ruscica Tim (React)"
 __copyright__   =     "Copyright 2020, Nouvellie"
 __license__     =     "MIT License"
-__version__     =     "0.5.1"
+__version__     =     "0.6.0"
 __maintainer__  =     "Rocuant Roberto"
 __email__       =     "roberto.rocuantv@gmail.com"
 __created__     =     "02/18/2020" # MM/DD/YYYY
 __structure__   =     "str(version) - str(date) - list(info) - list(problems) - bool(fixed) - str(commit)"
 
 __logs__        =  {
-    'version':      "0.5.1",
-    'date':         "01/02/2021",
-    'info':         ["Tensorflow gpu installed and added to Anaconda script file.", "Hdfyjsontest App created.", "Hdf5jsontest App removed.", "Tflitetest App changed to tensorflow", "Hdf5/json predict working.", "Merge tflite with tensorflow hdf5 type.", "Remake model_loader to be compatible with tflite and hdf5/json input type.", "TFLITE and HDF5 ready.", "Code cleaned.",],
-    'problems':     ["Problems with layers.*", "Problems with get_default_graph function.*", "Git ignore settings.", "Model for text inputs.", "Model for vector inputs.", "Model for signal inputs.", "Testing all the remains functions.",],
-    'fixed':        False,
+    'version':      "0.6.0",
+    'date':         "",
+    'info':         ["Pre load logs for tflite and hdf5json.",],
+    'problems':     ["",],
+    'fixed':        None,
     'commit':       "",
 }
+
+# __logs__        =  {
+#     'version':      "0.5.1",
+#     'date':         "01/02/2021",
+#     'info':         ["Tensorflow gpu installed and added to Anaconda script file.", "Hdfyjsontest App created.", "Hdf5jsontest App removed.", "Tflitetest App changed to tensorflow", "Hdf5/json predict working.", "Merge tflite with tensorflow hdf5 type.", "Remake model_loader to be compatible with tflite and hdf5/json input type.", "TFLITE and HDF5 ready.", "Code cleaned.",],
+#     'problems':     ["Problems with layers.*", "Problems with get_default_graph function.*", "Git ignore settings.", "Model for text inputs.", "Model for vector inputs.", "Model for signal inputs.", "Testing all the remains functions.",],
+#     'fixed':        False,
+#     'commit':       "0ffcbd61c2d780604de4ee541e150df5b55edb22",
+# }
 
 # __logs__        =  {
 #     'version':      "0.5.0",
 #     'date':         "12/31/2020",
 #     'info':         ["New models for Fashion Mnist.", "React App removed.", "Statuscode for 415 for fashion mnist fixed.", "Credits updated.", "Readme updated.",],
-#     'problems':     ["Json result of the trained model instead of mlmodels file.",],
-#     'fixed':        False,
+#     'problems':     ["Json result of the trained model instead of mlmodels file.*",],
+#     'fixed':        True,
 #     'commit':       "",
 # }
 

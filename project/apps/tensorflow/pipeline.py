@@ -54,7 +54,7 @@ class Pipeline:
     def apply(cls, x, func, *args, **kwargs,):
         """Compute func(x, *args, **kwargs)"""
         if func in cls.FUNCTIONS_PIPELINE:
-         
+
             return cls.FUNCTIONS_PIPELINE[func](x, *args, **kwargs)
         
         else:
@@ -68,7 +68,7 @@ class Pipeline:
             self.pipeline.append(add_pipe)
 
             return self.__class__(self.pipeline)
-       
+
         else:
             raise NotImplementedError(f"{add_pipe[0]!r} not available in Pipeline")       
 

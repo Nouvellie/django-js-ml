@@ -46,6 +46,7 @@ class BaseModelLoader(metaclass=ABCMeta):
     def load_input_model(self,):
         self.InputsModel = InputsModel()
     
+    
     def load_preprocessing(self,):
         """Function to apply preprocessing to an array"""
         preprocessing_path = os.path.join(MODEL_ROOT + f"{self.dir_model}/preprocessing.json")
@@ -86,7 +87,7 @@ class ModelLoaderTFLITE(BaseModelLoader):
         """Preload tflite model"""        
         name_tflite = [name for name in os.listdir(MODEL_ROOT + f"{self.dir_model}") if name.endswith(".tflite")][0]
         model_path = os.path.join(MODEL_ROOT + f"{self.dir_model}/{name_tflite}")
-        
+
         if self.NUM_THREADS > 0:
             self.interpreter = lite.Interpreter(model_path=str(model_path), num_threads=self.NUM_THREADS)
 
@@ -96,6 +97,7 @@ class ModelLoaderTFLITE(BaseModelLoader):
         self.interpreter.allocate_tensors()
         self.input_details = self.interpreter.get_input_details()
         self.output_details = self.interpreter.get_output_details()
+        print(f"The model {self.dir_model.title()} has been pre-loaded successfully. (TFLITE)")
 
 
     def predict(self, input, confidence_bool=False,):
@@ -130,6 +132,7 @@ class ModelLoaderJSONHDF5(BaseModelLoader):
         with open(json_model_path, "r") as json_file:
             self.model = model_from_json(json_file.read())
         self.model.load_weights(hdf5_model_path)
+        print(f"The model {self.dir_model.title()} has been pre-loaded successfully. (HDF5-JSON)")
 
 
     def predict(self, input, confidence_bool=False,):
