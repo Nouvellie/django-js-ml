@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@material-ui/core": "^4.11.2",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "react-router-dom": "^5.2.0"
